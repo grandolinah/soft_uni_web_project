@@ -13,16 +13,29 @@ class Snake {
         let prev = this.head;
         for (let i = 0; i < this.len; i++) {
             let current = new Segment(prev.end.x, prev.end.y, this.thickness);
-            this.body.push(current)
+            current.calculateEnd();
+            this.body.push(current);
             prev = current;
         }
 
     }
-    display(){
-        this.head.display(this.color)
-        for(let part of this.body){
+
+    display() {
+        this.head.display(this.color);
+        for (let part of this.body) {
             part.display(this.color)
         }
+
+    }
+    update(){
+        this.controller.update();
+        this.head.follow(this.controller.pos.x, this.controller.pos.y);
+        let prev = this.head;
+        for (let part of this.body){
+            part.follow(prev.start.x,prev.start.y);
+            prev = part;
+        }
+
     }
 
 

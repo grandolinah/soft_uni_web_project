@@ -13,5 +13,7 @@ function draw() {
     background(0);
     //segment.calculateEnd()
     //segment.display(color);
+    snake.update();
     snake.display();
+    //snakeController.display()
 }

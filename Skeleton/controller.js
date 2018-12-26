@@ -5,9 +5,14 @@ class Controller{
         this.dir = createVector(random(width) , random(height));// direction
     }
     update(){
-        let dir = createVector(mouseX - width/2, mouserY-height/2);
-        dir.setMap(0,8);
+        let dir = createVector(mouseX - width/2, mouseY-height/2);
+        dir.setMag(0.5);
         this.vel.lerp(dir,0.2);
         this.pos.add(this.vel)
     }
+   // display(){
+        //stroke(255,0,0);
+       // strokeWeight(8);
+       // point(this.pos.x,this.pos.y)
+   // }
 }
